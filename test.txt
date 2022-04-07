@@ -1,0 +1,48 @@
+https://fcm.googleapis.com//v1/projects/<YOUR-PROJECT-ID>/messages:send
+Content-Type: application/json
+Authorization: bearer <YOUR-ACCESS-TOKEN>
+
+{
+  "message": {
+    "token": "eEz-Q2sG8nQ:APA91bHJQRT0JJ...",
+    "notification": {
+      "title": "Background Message Title",
+      "body": "Background message body"
+    },
+    "webpush": {
+      "fcm_options": {
+        "link": "https://dummypage.com"
+      }
+    }
+  }
+}
+
+const PUBLIC_KEY = 'BJKoGJqdVukNupns7u9dNVkaf_1SiUHgirZnvPvYCgPI1-IAoncnylwDH_iLZTwcrCaYQbc69nSNJES98w3HG3U';
+const messaging = getMessaging();
+    getToken(messaging, { vapidKey: PUBLIC_KEY })
+        .then((currentToken) => {
+            if (currentToken) {
+                // Send the token to your server and update the UI if necessary
+                // ...
+                console.log(currentToken);
+            }
+            else {
+                // Show permission request UI
+                console.log('No registration token available. Request permission to generate one.');
+                // ...
+            }
+        })
+        .catch((err) => {
+            console.log('An error occurred while retrieving token. ', err);
+            // ...
+        });
+
+{
+    "to": "fzcnmR6uuKPj_ZL0XIsFZU:APA91bEUUmtVvelq267z2MY_-AlYeKbTW5kMZWqXvbpS7Kin2q4Uq7ZgJdLdd2M85_3_so2Zh86QZVdzx4IDRVJRBMJR-MfCdJcIs5_sB2nXGBtVBp2vmflATZdt89U7yYDtsUlhF5RC",
+    "notification": {
+        "body": "Cuerpo de notificatición",
+        "title": "Título de Notificación",
+        "icon": "firebase-logo.png",
+        "click_action": "https://www.google.com/"
+    }
+}
